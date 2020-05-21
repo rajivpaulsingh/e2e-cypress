@@ -15,4 +15,13 @@ describe('Basic page interations', () => {
             .invoke('text')
             .should('equal', 'Option Two');    
     });
+
+    it('displays the correct count for the number of selected checkboxes', () => {
+        cy.get('[data-cy=box-2-checkboxes] > :nth-child(1) input')
+            .check();
+
+        cy.get('[data-cy=box-2-selected-count]')
+            .invoke('text')
+            .should('equal', '1');
+    })
 });

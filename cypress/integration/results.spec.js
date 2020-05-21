@@ -2,7 +2,8 @@
 /* eslint-disable no-undef */
 
 describe('Text box with max characters', () => {
-    it('displays the appropriate remaining characters count', () => {
+
+    beforeEach(() => {
         cy.visit('http://localhost:3000/example-3');
 
         cy.get('[data-cy=first-name-chars-left-count]')
@@ -10,7 +11,10 @@ describe('Text box with max characters', () => {
 
         cy.get('[data-cy=input-first-name]')
             .as('charInput');
+    });
 
+    it('displays the appropriate remaining characters count', () => {
+        
         // cy.get('@charsLeftSpan')
         //     .invoke('text')
         //     .should('equal', '15');

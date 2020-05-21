@@ -23,5 +23,14 @@ describe('Basic page interations', () => {
         cy.get('[data-cy=box-2-selected-count]')
             .invoke('text')
             .should('equal', '1');
-    })
+    });
+
+    it('displays the name of the currently selected drop down items', () => {
+        cy.get('[data-cy=box-3-dropdown]')
+            .select('Option Three');
+
+        cy.get('[data-cy=box-3-selected-name]')
+            .invoke('text')
+            .should('equal', 'Option Three');
+    });
 });

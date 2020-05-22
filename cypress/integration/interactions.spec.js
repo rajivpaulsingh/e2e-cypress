@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 /* eslint-disable no-undef */
 
-describe('Basic page interations', () => {
+describe('Basic page interactions', () => {
 
     beforeEach(() => {
         cy.visit('example-4');
@@ -36,7 +36,11 @@ describe('Basic page interations', () => {
 
     it('should display the name of the recent hovered item', () => {
         cy.get('[data-cy=box-4-items-list] > :nth-child(2)')
-            .trigger('mouseover');
+            .trigger('mouseover')
+            // .then(() => {
+            //     debugger;
+            // });
+            .debug(); //open inspect element in the browser and then run the test
         cy.get('[data-cy=box-4-selected-name]')
             .invoke('text')
             .should('equal', 'Option Two')

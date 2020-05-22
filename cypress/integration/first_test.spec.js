@@ -1,4 +1,3 @@
-/// <reference types="Cypress" />
 /* eslint-disable no-undef */
 
 describe('Heading text', () => {
